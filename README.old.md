@@ -1,10 +1,10 @@
 # firecontactap
 
 # Kullanılacak Paketler
-## material Ui
-## material Ui- icon
-## firebase
-## toastify
+- material Ui
+- material Ui- icon
+- firebase
+- toastify
 
 # işlem adımları
 - Forma bilgi girişi
