@@ -12,4 +12,4 @@
 - Database den veri alma
 - Veri silme
 - Veri değiştirme
-- React Toastify kullanma
+- React Toastify kullanılacak.
