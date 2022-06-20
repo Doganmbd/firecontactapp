@@ -32,7 +32,7 @@ const FormComponent = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <code>{"<m.b.d/> "}</code>
+            <code>{"<M.B.D/> "}</code>
           </a>
         </div>
         <span className="design header">design</span>
