@@ -19,8 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <Contacts />
       <FormComponent info={info} setInfo={setInfo} />
+      <Contacts />
     </div>
   );
 }
