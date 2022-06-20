@@ -23,3 +23,14 @@ code {
   background-position: center;
   align-items: center;
 }
+
+.form {
+  flex-grow :1;
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+}
