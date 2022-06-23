@@ -16,10 +16,14 @@ function App() {
   /* Forma yazılacak bilgileri bir değişkende tutmakiçin bir state oluşturuyorum.Ve forma göndermek için buradan info ve setinfo değerlerini FormComponent e ekliyorum */
   const [info, setInfo] = useState(initialValues)
 
+  const handleFormSubmit = (e)=> {
+    e.preventDefault()
+    console.log(info)
+  }
 
   return (
     <div className="App">
-      <FormComponent info={info} setInfo={setInfo} />
+      <FormComponent info={info} setInfo={setInfo} handleFormSubmit={handleFormSubmit} />
       <Contacts />
     </div>
   );

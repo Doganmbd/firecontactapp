@@ -14,7 +14,7 @@ import {
 import { AccountCircle } from "@mui/icons-material";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
-const FormComponent = ({info,setInfo}) => {
+const FormComponent = ({info,setInfo,handleFormSubmit}) => {
   
   const handleChange = (e)=> {
     e.preventDefault();
@@ -49,7 +49,7 @@ const FormComponent = ({info,setInfo}) => {
       <h2 className="contact-header">Add Contact</h2>
     
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
-        <form >
+        <form onSubmit={handleFormSubmit} >
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
