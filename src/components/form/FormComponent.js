@@ -23,6 +23,7 @@ const FormComponent = ({info,setInfo}) => {
     */
     const {name,value} = e.target ;
     console.log(name,value);
+    setInfo({...info,[name]:value})
   }
 
   return (
