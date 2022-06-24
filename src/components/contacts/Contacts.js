@@ -8,9 +8,14 @@ import {
     TableBody,
     Paper
 } from "@mui/material";
+import { useFetch } from "../../utils/functions";
+
+
 
 
 const Contacts = () => {
+  const {isLoading,contactList} = useFetch();
+
 
   return (
     <div>
@@ -28,13 +33,34 @@ const Contacts = () => {
           </TableHead>        
          
           <TableBody>
-            <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>            
-              <TableCell colSpan={5} align="center">Loading</TableCell>             
-            </TableRow>
+            {isLoading ? (
 
+              <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>            
+                <TableCell colSpan={5} align="center">Loading</TableCell>             
+              </TableRow>
+            ) : 
+
+            /* bilgi yoksa veri bulunamadı mesajı verecek. */
+            contactList?.length=== 0 ?
+            (
             <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>            
             <TableCell colSpan={5} align="center">Ekrana yazacak veri bulunamadı</TableCell>             
           </TableRow>
+
+            ) :
+            (
+              /* bilgiler olduğu zaman aşağıdaki kodlar çalışacak */
+              contactList?.map ((item,index)=> (
+                <TableRow key = {index}>            
+                <TableCell textAlign="center">{item.username.toUpperCase()}</TableCell>             
+                <TableCell textAlign="center">{item.phoneNumber}</TableCell>             
+                <TableCell textAlign="center">{item.gender}</TableCell>             
+              </TableRow>
+              )
+
+              )
+            )}
+
 
           </TableBody>
         </Table>
