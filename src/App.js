@@ -4,6 +4,8 @@ import FormComponent from './components/form/FormComponent';
 import Contacts from './components/contacts/Contacts';
 import { AddForm , EditUser} from './utils/functions';
 
+import { ToastContainer } from "react-toastify";
+
 /* her sayfayı yenilediğimde forma yazılanları boşaltmak istiyorum bu yüzden boş stringe eşitliyorum ve state initialvalues ekliyorum*/
 
 const initialValues={
@@ -35,6 +37,7 @@ function App() {
     <div className="App">
       <FormComponent info={info} setInfo={setInfo} handleFormSubmit={handleFormSubmit} />
       <Contacts editHandler={editHandler} />
+      <ToastContainer/>
     </div>
   );
 }

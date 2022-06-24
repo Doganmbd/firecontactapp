@@ -5,6 +5,7 @@ import firebase from "./firebase"
 import { getDatabase , ref , set , push , onValue, remove , update} from "firebase/database";
 
 import { useEffect, useState } from "react";
+import Toastify from "./toast";
 
 // bilgi ekleme işlemi
 export const AddForm = (info)=> {
@@ -50,6 +51,8 @@ export const useFetch = ()=> {
 export const DeleteUser = (id)=> {
     const db = getDatabase();  
     remove(ref(db,"connect/" + id))
+
+    Toastify("Kullanıcı bilgisi silindi")
 
  }
 
