@@ -2,7 +2,7 @@
 
 import firebase from "./firebase"
 
-import { getDatabase , ref , set , push , onValue} from "firebase/database";
+import { getDatabase , ref , set , push , onValue, remove} from "firebase/database";
 
 import { useEffect, useState } from "react";
 
@@ -44,4 +44,11 @@ export const useFetch = ()=> {
         
         },[])
     return {isloading,contactList}
+ }
+
+ /* veri silme işlemi yapacağım. */
+export const DeleteUser = (id)=> {
+    const db = getDatabase();  
+    remove(ref(db,"connect/" + id))
+
  }
