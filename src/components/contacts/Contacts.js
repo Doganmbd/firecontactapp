@@ -16,7 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 
-const Contacts = () => {
+const Contacts = ({editHandler}) => {
   const {isLoading,contactList} = useFetch();
 
 
@@ -36,14 +36,14 @@ const Contacts = () => {
           </TableHead>        
          
           <TableBody>
+            {/*Bilgiler gelmediği durumda Loading yazısı görünsün */}
             {isLoading ? (
-
               <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>            
                 <TableCell colSpan={5} align="center">Loading</TableCell>             
               </TableRow>
             ) : 
 
-            /* bilgi yoksa veri bulunamadı mesajı verecek. */
+            /* bilgi yoksa boş olduğu  durumda veri bulunamadı mesajı verecek. */
             contactList?.length=== 0 ?
             (
             <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>            
@@ -59,7 +59,12 @@ const Contacts = () => {
                 <TableCell textAlign="center">{item.phoneNumber}</TableCell>             
                 <TableCell textAlign="center">{item.gender}</TableCell>             
                 <TableCell textAlign="center" onClick= {()=>DeleteUser(item.id)} ><DeleteIcon/></TableCell>             
-                <TableCell textAlign="center"><EditIcon/></TableCell>             
+                <TableCell textAlign="center" onClick={()=>editHandler(
+                  item.id,
+                  item.username,
+                  item.phoneNumber,
+                  item.gender
+                )} ><EditIcon/></TableCell>             
               </TableRow>
               )
 

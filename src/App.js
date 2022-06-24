@@ -2,7 +2,7 @@ import './App.css';
 import {useState} from 'react' ;
 import FormComponent from './components/form/FormComponent';
 import Contacts from './components/contacts/Contacts';
-import { AddForm } from './utils/functions';
+import { AddForm , EditUser} from './utils/functions';
 
 /* her sayfayı yenilediğimde forma yazılanları boşaltmak istiyorum bu yüzden boş stringe eşitliyorum ve state initialvalues ekliyorum*/
 
@@ -20,13 +20,21 @@ function App() {
   const handleFormSubmit = (e)=> {
     e.preventDefault()
     console.log(info)
-    AddForm(info)
+    if(info.id){
+      EditUser(info)
+    }
+    else {AddForm(info)}
+  }
+
+  const editHandler = (id,username,phoneNumber,gender)=> {
+    setInfo({id,username,phoneNumber,gender})
+
   }
 
   return (
     <div className="App">
       <FormComponent info={info} setInfo={setInfo} handleFormSubmit={handleFormSubmit} />
-      <Contacts />
+      <Contacts editHandler={editHandler} />
     </div>
   );
 }
